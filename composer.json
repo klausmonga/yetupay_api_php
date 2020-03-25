@@ -1,0 +1,14 @@
+{
+    "name": "yetupay/api",
+    "description": "this library is a wrapper code for our yetupay api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "klausmonga",
+            "email": "klaus@digitalsense.sarl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
