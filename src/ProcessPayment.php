@@ -10,8 +10,6 @@ class ProcessPayment {
     private $JSONObject_trans;
     private $productsList="";
     private $JSONObject_response;
-    private $customer_number;
-    private $receiver_number;
     public function getDev() {
         return $this->dev;
     }
@@ -31,7 +29,6 @@ class ProcessPayment {
     }
 
     public function addBill_to($num) {
-        $this->customer_number=$num;
         $this->bill_to = "\"bill_to\":{\n" .
                 "\t  \t\"num\":\"".$num."\"}";
     }
@@ -40,12 +37,7 @@ class ProcessPayment {
         return $this->p_info;
     }
     public function addProduct($receiver,$price, $quantity,$name,$description){
-        if (strcmp($this->customer_number,$receiver)!==0) {
-            $this->productsList.=",{\"receiver\":\"".$receiver."\",\"price\":".$price.",\"quantity\":".$quantity.",\"name\":\"".$name."\",\"description\":\"".$description."\"}";
-        }else{
-            $this->productsList.=",{\"price\":".$price.",\"quantity\":".$quantity.",\"name\":\"".$name."\",\"description\":\"".$description."\"}";
-        }
-        
+        $this->productsList.=",{\"receiver\":\"".$receiver."\",\"price\":".$price.",\"quantity\":".$quantity.",\"name\":\"".$name."\",\"description\":\"".$description."\"}";   
     }
     public function getProductsList(){
         return $this->productsList;
